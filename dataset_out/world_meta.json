@@ -1,0 +1,214 @@
+{
+  "RandomSeed": 8378728070263354213,
+  "generatorName": "customized",
+  "BorderCenterZ": 0.0,
+  "Difficulty": 2,
+  "BorderSizeLerpTime": 0,
+  "raining": 0,
+  "DimensionData": {
+    "1": {
+      "DragonFight": {
+        "Gateways": [
+          1,
+          16,
+          18,
+          6,
+          17,
+          15,
+          10,
+          14,
+          12,
+          0,
+          11,
+          4,
+          8,
+          5,
+          2,
+          9,
+          3,
+          13,
+          7,
+          19
+        ],
+        "DragonKilled": 1,
+        "PreviouslyKilled": 1
+      }
+    }
+  },
+  "Time": 2313,
+  "GameType": 1,
+  "MapFeatures": 0,
+  "BorderCenterX": 0.0,
+  "BorderDamagePerBlock": 0.2,
+  "BorderWarningBlocks": 5.0,
+  "BorderSizeLerpTarget": 60000000.0,
+  "Version": {
+    "Snapshot": 0,
+    "Id": 1343,
+    "Name": "1.12.2"
+  },
+  "DayTime": 2313,
+  "initialized": 1,
+  "allowCommands": 1,
+  "SizeOnDisk": 0,
+  "GameRules": {
+    "doTileDrops": "true",
+    "doFireTick": "true",
+    "gameLoopFunction": "-",
+    "maxCommandChainLength": "65536",
+    "reducedDebugInfo": "false",
+    "naturalRegeneration": "true",
+    "disableElytraMovementCheck": "false",
+    "doMobLoot": "true",
+    "announceAdvancements": "true",
+    "keepInventory": "false",
+    "doEntityDrops": "true",
+    "doLimitedCrafting": "false",
+    "mobGriefing": "true",
+    "randomTickSpeed": "3",
+    "commandBlockOutput": "true",
+    "spawnRadius": "10",
+    "doMobSpawning": "true",
+    "maxEntityCramming": "24",
+    "logAdminCommands": "true",
+    "spectatorsGenerateChunks": "true",
+    "doWeatherCycle": "true",
+    "sendCommandFeedback": "true",
+    "doDaylightCycle": "true",
+    "showDeathMessages": "true"
+  },
+  "Player": {
+    "HurtByTimestamp": 0,
+    "SleepTimer": 0,
+    "Attributes": [
+      {
+        "Base": 20.0,
+        "Name": "generic.maxHealth"
+      },
+      {
+        "Base": 0.0,
+        "Name": "generic.knockbackResistance"
+      },
+      {
+        "Base": 0.10000000149011612,
+        "Name": "generic.movementSpeed"
+      },
+      {
+        "Base": 0.0,
+        "Name": "generic.armor"
+      },
+      {
+        "Base": 0.0,
+        "Name": "generic.armorToughness"
+      },
+      {
+        "Base": 1.0,
+        "Name": "generic.attackDamage"
+      },
+      {
+        "Base": 4.0,
+        "Name": "generic.attackSpeed"
+      },
+      {
+        "Base": 0.0,
+        "Name": "generic.luck"
+      }
+    ],
+    "Invulnerable": 0,
+    "FallFlying": 0,
+    "PortalCooldown": 0,
+    "AbsorptionAmount": 0.0,
+    "abilities": {
+      "invulnerable": 1,
+      "mayfly": 1,
+      "instabuild": 0,
+      "walkSpeed": 0.10000000149011612,
+      "mayBuild": 0,
+      "flying": 1,
+      "flySpeed": 0.05000000074505806
+    },
+    "FallDistance": 0.0,
+    "recipeBook": {
+      "recipes": [],
+      "isFilteringCraftable": 0,
+      "toBeDisplayed": [],
+      "isGuiOpen": 0
+    },
+    "DeathTime": 0,
+    "XpSeed": 0,
+    "XpTotal": 0,
+    "playerGameType": 3,
+    "seenCredits": 0,
+    "Motion": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "UUIDLeast": -6208487776183126929,
+    "Health": 20.0,
+    "foodSaturationLevel": 5.0,
+    "Air": 300,
+    "OnGround": 0,
+    "Dimension": 0,
+    "Rotation": [
+      257.849853515625,
+      9.300004959106445
+    ],
+    "XpLevel": 0,
+    "Score": 0,
+    "UUIDMost": 5574341801530641089,
+    "Sleeping": 0,
+    "Pos": [
+      30.312739435653345,
+      7.28201988110838,
+      26.287709210591167
+    ],
+    "Fire": -20,
+    "XpP": 0.0,
+    "EnderItems": [],
+    "DataVersion": 1343,
+    "foodLevel": 20,
+    "foodExhaustionLevel": 0.0,
+    "HurtTime": 0,
+    "SelectedItemSlot": 2,
+    "ActiveEffects": [
+      {
+        "Ambient": 0,
+        "ShowParticles": 1,
+        "Duration": 8093,
+        "Id": 16,
+        "Amplifier": 0
+      }
+    ],
+    "Inventory": [
+      {
+        "Slot": 0,
+        "id": "minecraft:potion",
+        "Count": 1,
+        "tag": {
+          "Potion": "minecraft:long_night_vision"
+        },
+        "Damage": 0
+      }
+    ],
+    "foodTickTimer": 0
+  },
+  "SpawnY": 64,
+  "rainTime": 138874,
+  "thunderTime": 17248,
+  "SpawnZ": 256,
+  "hardcore": 0,
+  "DifficultyLocked": 0,
+  "SpawnX": 84,
+  "clearWeatherTime": 0,
+  "thundering": 0,
+  "generatorVersion": 0,
+  "version": 19133,
+  "BorderSafeZone": 5.0,
+  "generatorOptions": "{\"coordinateScale\":684.412,\"heightScale\":684.412,\"lowerLimitScale\":512.0,\"upperLimitScale\":512.0,\"depthNoiseScaleX\":200.0,\"depthNoiseScaleZ\":200.0,\"depthNoiseScaleExponent\":0.5,\"mainNoiseScaleX\":80.0,\"mainNoiseScaleY\":160.0,\"mainNoiseScaleZ\":80.0,\"baseSize\":8.5,\"stretchY\":12.0,\"biomeDepthWeight\":1.0,\"biomeDepthOffset\":0.0,\"biomeScaleWeight\":1.0,\"biomeScaleOffset\":0.0,\"seaLevel\":63,\"useCaves\":true,\"useDungeons\":false,\"dungeonChance\":1,\"useStrongholds\":false,\"useVillages\":false,\"useMineShafts\":false,\"useTemples\":false,\"useMonuments\":false,\"useMansions\":false,\"useRavines\":false,\"useWaterLakes\":false,\"waterLakeChance\":1,\"useLavaLakes\":false,\"lavaLakeChance\":59,\"useLavaOceans\":false,\"fixedBiome\":1,\"biomeSize\":8,\"riverSize\":4,\"dirtSize\":33,\"dirtCount\":10,\"dirtMinHeight\":0,\"dirtMaxHeight\":256,\"gravelSize\":33,\"gravelCount\":0,\"gravelMinHeight\":0,\"gravelMaxHeight\":256,\"graniteSize\":33,\"graniteCount\":0,\"graniteMinHeight\":0,\"graniteMaxHeight\":80,\"dioriteSize\":33,\"dioriteCount\":0,\"dioriteMinHeight\":0,\"dioriteMaxHeight\":80,\"andesiteSize\":33,\"andesiteCount\":0,\"andesiteMinHeight\":0,\"andesiteMaxHeight\":80,\"coalSize\":17,\"coalCount\":0,\"coalMinHeight\":0,\"coalMaxHeight\":128,\"ironSize\":9,\"ironCount\":0,\"ironMinHeight\":0,\"ironMaxHeight\":64,\"goldSize\":9,\"goldCount\":0,\"goldMinHeight\":0,\"goldMaxHeight\":32,\"redstoneSize\":8,\"redstoneCount\":0,\"redstoneMinHeight\":0,\"redstoneMaxHeight\":16,\"diamondSize\":1,\"diamondCount\":0,\"diamondMinHeight\":0,\"diamondMaxHeight\":0,\"lapisSize\":7,\"lapisCount\":0,\"lapisCenterHeight\":16,\"lapisSpread\":16}",
+  "LastPlayed": 1761176638151,
+  "BorderWarningTime": 15.0,
+  "LevelName": "FOR_AI_CLASS",
+  "BorderSize": 60000000.0,
+  "DataVersion": 1343
+}

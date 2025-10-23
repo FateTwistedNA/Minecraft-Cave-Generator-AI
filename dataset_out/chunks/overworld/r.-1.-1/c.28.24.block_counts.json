@@ -1,0 +1,22 @@
+{
+  "minecraft:OldBlock(id=7, data=0)": 755,
+  "minecraft:OldBlock(id=1, data=0)": 13707,
+  "minecraft:OldBlock(id=3, data=0)": 1133,
+  "minecraft:OldBlock(id=11, data=0)": 120,
+  "minecraft:air": 49451,
+  "minecraft:OldBlock(id=9, data=1)": 4,
+  "minecraft:OldBlock(id=9, data=2)": 6,
+  "minecraft:OldBlock(id=9, data=3)": 6,
+  "minecraft:OldBlock(id=9, data=4)": 4,
+  "minecraft:OldBlock(id=9, data=5)": 4,
+  "minecraft:OldBlock(id=9, data=6)": 3,
+  "minecraft:OldBlock(id=9, data=7)": 1,
+  "minecraft:OldBlock(id=9, data=11)": 2,
+  "minecraft:OldBlock(id=8, data=7)": 1,
+  "minecraft:OldBlock(id=8, data=6)": 1,
+  "minecraft:OldBlock(id=2, data=0)": 256,
+  "minecraft:OldBlock(id=31, data=1)": 58,
+  "minecraft:OldBlock(id=175, data=2)": 11,
+  "minecraft:OldBlock(id=37, data=0)": 2,
+  "minecraft:OldBlock(id=175, data=10)": 11
+}
