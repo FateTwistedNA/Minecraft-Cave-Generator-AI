@@ -1,5 +1,5 @@
 # COSC 4368 – Minecraft Cave Generator (VAE + Tensor Dataset)
-
+## **Group members : Nam Cao, ...**
 This project is a course project for **COSC 4368 – Fundamentals of AI**.  
 The goal is to **learn 3D cave structures from Minecraft** and then **generate new, plausible caves** that can be spawned in-game via a custom Minecraft mod.
 
