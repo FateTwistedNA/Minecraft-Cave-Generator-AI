@@ -1,4 +1,15 @@
+# Python venv
+.venv/
+env/
 venv/
+
 Minecraft world/
 .DS_Store
 .git
+
+# Big training data (6 GB)
+data/caves_pt/
+*.pt
+
+__pycache__/
+*.pyc
