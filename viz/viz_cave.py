@@ -10,61 +10,93 @@ import matplotlib.pyplot as plt
 import open3d as o3d
 
 def load_sample(pt_path):
+    """
+    Load a cave sample from a .pt file.
+
+    Supports:
+      1) Dict with keys like ("slice_seq", "full_volume", etc.)  <-- original dataset/json_to_pt
+      2) Plain tensor saved directly (e.g., gen_small_cave_0.pt) <-- generated tensors
+    """
     data = torch.load(pt_path, map_location="cpu")
-    # Accept either keys names from our exporter or a direct dict
-    # Try common keys:
+
+    slice_seq = None
+    full_vol = None
+
+    # Case 1: dict-like .pt (original caves or json_to_pt output)
     if isinstance(data, dict):
         # Accept multiple possible key names
-        slice_keys = ("slice_seq", "slice_sequence", "slice_seq_resized", "outline_sequence", "outline_seq")
+        slice_keys = ("slice_seq", "slice_sequence", "slice_seq_resized",
+                      "outline_sequence", "outline_seq")
         vol_keys = ("full_volume", "full_vol", "volume", "voxels", "vox_resized")
-        slice_seq = None
-        full_vol = None
+
         for k in slice_keys:
             if k in data:
                 slice_seq = data[k]
                 break
+
         for k in vol_keys:
             if k in data:
                 full_vol = data[k]
                 break
-        # fallback: if only two tensors saved arbitrarily
-        if slice_seq is None or full_vol is None:
-            # try to find tensors in values
-            tensors = [v for v in data.values() if torch.is_tensor(v) or isinstance(v, np.ndarray)]
-            if len(tensors) >= 2:
-                slice_seq = tensors[0]
-                full_vol = tensors[1]
+
+        # Fallback: if no explicit keys, try any tensor-ish values
+        if full_vol is None:
+            tensors = [v for v in data.values()
+                       if torch.is_tensor(v) or isinstance(v, np.ndarray)]
+            if len(tensors) >= 1:
+                full_vol = tensors[0]
+
+    # Case 2: plain tensor / numpy array saved directly
+    elif torch.is_tensor(data) or isinstance(data, np.ndarray):
+        full_vol = data
+
     else:
-        raise ValueError("Unsupported .pt format")
+        raise ValueError("Unsupported .pt format (not a dict or tensor)")
 
-    if slice_seq is None or full_vol is None:
-        raise ValueError("Could not find required keys (slice_seq, full_volume) in the .pt file.")
+    # --- Normalize full_vol to numpy, shape (D, H, W) ---
 
-    # Convert to numpy
-    if torch.is_tensor(slice_seq):
-        slice_seq = slice_seq.cpu().numpy()
     if torch.is_tensor(full_vol):
         full_vol = full_vol.cpu().numpy()
 
-    # Normalize shapes:
-    # slice_seq expected shape: (N, H, W)
-    # full_vol expected shape: (1, D, H, W) or (D,H,W)
-    if full_vol.ndim == 4 and full_vol.shape[0] == 1:
-        full_vol = full_vol[0]  # (D, H, W)
-    elif full_vol.ndim == 4 and full_vol.shape[1] == 1:
-        # sometimes shape (1,D,H,W)
-        full_vol = np.squeeze(full_vol, axis=0)
+    # Possible shapes: (1,1,D,H,W), (1,D,H,W), (D,H,W)
+    if full_vol.ndim == 5 and full_vol.shape[0] == 1 and full_vol.shape[1] == 1:
+        full_vol = full_vol[0, 0]         # -> (D, H, W)
+    elif full_vol.ndim == 4:
+        # (1, D, H, W) or (D, 1, H, W)
+        if full_vol.shape[0] == 1:
+            full_vol = full_vol[0]
+        elif full_vol.shape[1] == 1:
+            full_vol = full_vol[:, 0]
     elif full_vol.ndim == 3:
-        pass
+        pass  # already (D, H, W)
     else:
-        # try to reshape if possible
         raise ValueError(f"Unsupported full_vol shape: {full_vol.shape}")
 
-    # ensure uint8 / 0/1
+    D, H, W = full_vol.shape
+
+    # --- If we don't have slice_seq, synthesize it from full_vol ---
+    if slice_seq is None:
+        # Take up to 16 slices evenly spaced along depth
+        step = max(1, D // 16)
+        slice_seq = full_vol[::step, :, :]   # shape (N_slices, H, W)
+
+    # Convert slice_seq to numpy if tensor
+    if torch.is_tensor(slice_seq):
+        slice_seq = slice_seq.cpu().numpy()
+
+    # Clean up slice_seq shape: (N_slices, H, W)
+    if slice_seq.ndim == 4 and slice_seq.shape[0] == 1:
+        slice_seq = slice_seq[0]
+    elif slice_seq.ndim == 2:
+        # single slice 2D -> add slice dimension
+        slice_seq = slice_seq[None, :, :]
+
+    # Binarize both arrays to 0/1 for visualization
     slice_seq = (slice_seq > 0).astype(np.uint8)
-    full_vol = (full_vol > 0).astype(np.uint8)
+    full_vol  = (full_vol  > 0).astype(np.uint8)
 
     return slice_seq, full_vol
+
 
 # -------- 2D sequence visualizer ----------
 def show_slice_sequence(slice_seq, fps=6, loop=False):
